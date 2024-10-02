@@ -1,31 +1,33 @@
+// assigning DOM elements to variables
 const billInput = document.getElementById('bill');
 const peopleInput = document.getElementById('people');
 const tipButtons = document.querySelectorAll('.tip-btn');
-let customTipInput = document.getElementById('custom-tip');
+const customTipInput = document.getElementById('custom-tip');
 const tipAmountDisplay = document.getElementById('tip-amount');
 const totalAmountDisplay = document.getElementById('total-amount');
 const resetBtn = document.getElementById('reset-btn');
 
+// setting the default values to zero and number of people to one
 let bill = 0;
 let tipPercentage = 0;
 let people = 1;
 
-let tipAmount
+let tipAmount;
 
-
-
+// running the the function when there is an input
 billInput.addEventListener('input', function () {
-    bill = parseFloat(billInput.value);
+    bill = parseFloat(billInput.value); // skinning the string to become a value
     calculateAmounts();
 });
 
+// running the the function when there is an input
 peopleInput.addEventListener('input', function () {
-    people = parseInt(peopleInput.value);
+    people = parseInt(peopleInput.value); //changing the string input to a number
     calculateAmounts();
 });
 
 
-
+// looping through the array of percentage buttons with the class of .tipbutton
 tipButtons.forEach(button => {
     button.addEventListener('click', function () {
         tipPercentage = parseInt(button.getAttribute('data-tip'));
@@ -34,13 +36,15 @@ tipButtons.forEach(button => {
     });
 });
 
-customTipInput.addEventListener('click', function (event) {
-    event.preventDefault();
+// logic specific to the custom tip button 
+customTipInput.addEventListener('click', function () {
     let tip = prompt('Enter your custom tip', '50%');
     tipPercentage = tip;
-    tipPercentage = parseFloat(tipPercentage);
+    tipPercentage = parseFloat(tipPercentage); // skinning the string to become a value
     calculateAmounts();
 });
+
+
 resetBtn.addEventListener('click', function () {
     billInput.value = '';
     peopleInput.value = '';
