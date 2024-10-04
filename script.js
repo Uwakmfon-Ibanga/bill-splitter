@@ -61,11 +61,11 @@ function calculateAmounts() {
         tipAmount = (bill * (tipPercentage / 100)) / people;
         const totalAmount = (bill + tipAmount) / people;
 
-        tipAmountDisplay.textContent = `$ ${tipAmount.toFixed(2)}`;
-        totalAmountDisplay.textContent = `$${totalAmount.toFixed(2)}`;
+        tipAmountDisplay.textContent = `₦ ${tipAmount.toFixed(2)}`;
+        totalAmountDisplay.textContent = `₦${totalAmount.toFixed(2)}`;
         resetBtn.disabled = false;
     } else {
-        tipAmountDisplay.textContent = "$0.00";
-        totalAmountDisplay.textContent = "$0.00";
+        tipAmountDisplay.textContent = "₦0.00";
+        totalAmountDisplay.textContent = "₦0.00";
     }
 }
